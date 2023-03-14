@@ -1,0 +1,28 @@
+{
+  "name": "vms-service",
+  "version": "1.0.0",
+  "description": "vms micro service",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aditya Banotra",
+  "license": "ISC",
+  "dependencies": {
+    "@sentry/node": "^7.43.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "http": "0.0.1-security",
+    "json2xls": "^0.1.2",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "typeorm": "^0.3.12",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "typescript": "^4.9.5"
+  }
+}
