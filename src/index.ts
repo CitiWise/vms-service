@@ -14,7 +14,7 @@ const main = async () => {
 
   // init database
   const database = new Database();
-//   const conn = await database.getConnection("default");
+  await database.getConnection();
 
   const server = http.createServer(app);
 
@@ -50,18 +50,5 @@ const main = async () => {
   });
 };
 
-// // @ts-ignore
-// if (cluster.isPrimary) {
-//     const num_cpus = os.cpus().length;
+main();
 
-//     for (let i = 0; i < num_cpus; i++) {
-//         cluster.fork();
-//     }
-
-//     // if any cluster dies, fork a new one
-//     cluster.on('exit', () => {
-//         cluster.fork();
-//     });
-// } else {
-//     main();
-// }

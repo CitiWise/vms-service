@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import json2xls from 'json2xls';
 import apiV1Routes from './routes';
 import { logger, accessSuccessLogger, accessErrorLogger } from './utils/logger';
-// import { tokenHandler } from './middlewares';
+import { tokenHandler } from './middlewares';
 import rateLimit from 'express-rate-limit';
 
 const app = express();
@@ -40,6 +40,7 @@ const apiLimiter = rateLimit({
     message: 'You exceeded 100 requests in 15 minutes limit!'
 });
 
+app.use('/api/v1', tokenHandler, apiV1Routes);
 
 // global error handler
 app.use(async (err, _req, res, next) => {
