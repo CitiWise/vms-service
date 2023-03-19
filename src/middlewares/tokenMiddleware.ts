@@ -6,9 +6,10 @@ export async function tokenHandler(
   next: NextFunction
 ) {
   try {
-    if (req.get("x-source") === String(process.env.ACCESS_TOKEN)) {
-      return next();
-    }
+    // if (req.get("x-source") === String(process.env.ACCESS_TOKEN)) {
+    //   return next();
+    // }
+    return next();
   } catch (error: any) {
     return res.status(403).json({
       responseCode: "000028",
