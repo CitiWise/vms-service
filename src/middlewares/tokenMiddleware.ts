@@ -1,4 +1,11 @@
 import { Request, Response, NextFunction } from "express";
+import { AppType } from "../utils/constants/enums/AppType";
+
+export const getCookieName = (appType) =>
+    ({
+        [AppType.VALUER]: 'AUTH_TOKEN_COOKIE',
+        [AppType.LENDER]: 'AUTH_TOKEN_COOKIE_LENDER',
+    }[appType] || 'AUTH_TOKEN_COOKIE_ADMIN');
 
 export async function tokenHandler(
   req: Request,
