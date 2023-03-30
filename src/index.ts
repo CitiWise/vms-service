@@ -14,7 +14,6 @@ const main = async () => {
   const PORT = process.env.PORT;
 
   // init database
-  // init database
   await DBConnection.init(ormConfig);
 
   const server = http.createServer(app);
