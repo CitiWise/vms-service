@@ -4,8 +4,9 @@ import dotenv from "dotenv";
 import * as http from "http";
 
 import app from "./app";
-import { Database } from "./typeorm/dbCreateConnection";
+import { DBConnection } from "./typeorm/dbCreateConnection";
 import { logger } from "./utils/logger";
+import ormConfig from "./typeorm/config/ormConfig";
 
 dotenv.config({ path: "../.env " });
 
@@ -13,8 +14,8 @@ const main = async () => {
   const PORT = process.env.PORT;
 
   // init database
-  const database = new Database();
-  await database.getConnection();
+  // init database
+  await DBConnection.init(ormConfig);
 
   const server = http.createServer(app);
 
