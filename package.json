@@ -15,7 +15,9 @@
     "dev": "nodemon ./src/index.ts",
     "dev:debug": "export DEBUG_PORT=9234 && nodemon ./src/index.ts",
     "start": "node ./dist/index.js",
-    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js -f src/typeorm/config/ormconfig.ts",
+    "typeorm": "npm run build && npx typeorm -d dist/typeorm/dataSource.js",
+    "migration:generate": "npm run typeorm -- migration:generate src/typeorm/migrations/ab",
+    "migration:run": "npm run typeorm -- migration:run",
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "author": "Aditya Banotra",

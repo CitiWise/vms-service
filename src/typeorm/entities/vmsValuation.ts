@@ -2,15 +2,17 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { transformer } from "../../../utils/helper/helper";
+import { transformer } from "../../utils/helper/helper";
 import { VMSAddress } from "./vmsAddress";
 
-export class VMSProperty {
+@Entity('vms_valuation')
+export class VMSValuation {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -105,7 +107,5 @@ customerAddress: VMSAddress;
     nullable: true,
   })
   valuationReportUrl?: string;
-
-
 
 }
