@@ -8,10 +8,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { EValuationStatus } from "../../utils/constants/enums";
 import { transformer } from "../../utils/helper/helper";
 import { VMSAddress } from "./vmsAddress";
 
-@Entity('vms_valuation')
+@Entity("vms_valuation")
 export class VMSValuation {
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -32,12 +33,20 @@ export class VMSValuation {
   deletedAt: Date | null;
 
   @Column({
-    name: "applicant_id",
+    name: "reference_number",
     length: 36,
     type: "varchar",
     nullable: true,
   })
-  applicantId?: string;
+  referenceNumber?: string;
+
+  @Column({
+    name: "survey_number",
+    length: 36,
+    type: "varchar",
+    nullable: true,
+  })
+  surveyNumber?: string;
 
   @Column({
     name: "lender_id",
@@ -65,11 +74,12 @@ export class VMSValuation {
 
   @Column({
     name: "status",
-    type: "varchar",
-    length: 36,
+    type: "enum",
+    enum: Object.values(EValuationStatus),
+    default: EValuationStatus.WAITING_FOR_PAYMENT,
     nullable: false,
   })
-  status?: string;
+  status?: EValuationStatus;
 
   @Column({
     name: "date_of_valuation",
@@ -80,12 +90,11 @@ export class VMSValuation {
   dateOfValuation?: string;
 
   @Column({
-    name: "subject",
+    name: "remarks",
     type: "text",
     nullable: true,
   })
-  subject?: string;
-
+  remarks?: string;
 
   @Column({
     name: "address_id",
@@ -95,17 +104,18 @@ export class VMSValuation {
   })
   addressId?: string;
   @OneToOne(() => VMSAddress, {
-    createForeignKeyConstraints: false
-})
-@JoinColumn({ name: 'address_id', referencedColumnName: 'id' })
-customerAddress: VMSAddress;
+    createForeignKeyConstraints: false,
+  })
+  @JoinColumn({ name: "address_id", referencedColumnName: "id" })
+  customerAddress: VMSAddress;
 
-@Column({
+  @Column({
     name: "valuationReportUrl",
     type: "varchar",
     length: 200,
     nullable: true,
   })
   valuationReportUrl?: string;
-
 }
+
+       

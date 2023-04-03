@@ -3,15 +3,15 @@ import { logger } from "../utils/logger";
 import ormconfig from "./config/ormConfig";
 
 export class DBConnection {
-  static UMSDataSource;
+  static VMSDataSource;
   static config: any;
 
   static async init(config) {
-    this.UMSDataSource = new DataSource(config);
+    this.VMSDataSource = new DataSource(config);
 
-    if (!this.UMSDataSource.isInitialized) {
-      await this.UMSDataSource.initialize();
-      logger.info("New Datasource UMSDataSource made");
+    if (!this.VMSDataSource.isInitialized) {
+      await this.VMSDataSource.initialize();
+      logger.info("New Datasource VMSDataSource made");
     }
   }
 }
