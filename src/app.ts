@@ -42,6 +42,13 @@ const apiLimiter = rateLimit({
 
 app.use('/api/v1', tokenHandler, apiV1Routes);
 
+app.get('/test', (req, res) => {
+    res.send({
+        success: true
+    });
+});
+
+
 // global error handler
 app.use(async (err, _req, res, next) => {
     logger.error(err.stack);
