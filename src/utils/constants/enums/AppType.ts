@@ -1,4 +1,4 @@
 export enum AppType {
-    VALUER = 'AppSeller',
-    LENDER = 'AppLender'
+    VALUER = 'valuer',
+    LENDER = 'lender'
 }

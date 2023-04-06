@@ -9,9 +9,9 @@ const router: IRouter = Router();
 router.post("/initialize", ValuationController.createValuationRequest);
 
 /**
- *  Route to Obtain Cookie if available
+ *  Route to get valuations 
  */
 
-router.get("/", ValuationController.getValuationRequest);
+router.post("/find", ValuationController.getValuationRequest);
 
 export default router;

@@ -107,7 +107,7 @@ export class VMSValuation {
     createForeignKeyConstraints: false,
   })
   @JoinColumn({ name: "address_id", referencedColumnName: "id" })
-  customerAddress: VMSAddress;
+  propertyAddress: VMSAddress;
 
   @Column({
     name: "valuationReportUrl",
