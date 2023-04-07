@@ -111,9 +111,6 @@ export class ValuationControllerRoot {
 
       const {VMSDataSource} = DBConnection;
       const [valuations, count] = await VMSDataSource.getRepository(VMSValuation).findAndCount({
-        where: {
-          lenderId : "b9244141-32d8-4c1b-91e1-60e7512536eb"
-        },
         relations: ['propertyAddress']
       })
 
