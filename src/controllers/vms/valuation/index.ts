@@ -103,7 +103,6 @@ export class ValuationControllerRoot {
         throw new Error("where is required in request body");
       }
 
-      console.log(request.body.where)
 
       if (typeof request.body.where !== "object") {
         throw new Error("where is invalid ");
@@ -144,11 +143,9 @@ export class ValuationControllerRoot {
       //   findRequest.where[`searchValue`] = searchValue;
       //   findRequest.where[`searchOptionType`] = searchOptionType;
       // }
-      // console.log(1);
       // const { query } = getValuationQuery(findRequest);
 
       // const [valuations, count] = query.getManyAndCount();
-      console.log(valuations);
       return response.status(StatusCodes.OK).send({
         status: true,
         valuations,
