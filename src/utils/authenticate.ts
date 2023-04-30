@@ -14,7 +14,7 @@ export async function verifyOauthCode(
   try {
     const { UMS_AUTH_URL } = process.env;
     const url = `${UMS_AUTH_URL}/oauth2/token`;
-    // logger.info(`oauth verification call: [${url}]`);
+    logger.info(`oauth verification call: [${url}]`);
     const authParam =
       appType === AppType.VALUER
         ? process.env.VMS_AUTH_PARAM
