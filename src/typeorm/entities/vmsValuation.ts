@@ -103,6 +103,15 @@ export class VMSValuation {
     nullable: false,
   })
   addressId?: string;
+
+  @Column({
+    name: "amount",
+    type: "double",
+    nullable: false,
+    default: 5000,
+  })
+  amount?: number;
+
   @OneToOne(() => VMSAddress, {
     createForeignKeyConstraints: false,
   })
@@ -117,5 +126,3 @@ export class VMSValuation {
   })
   valuationReportUrl?: string;
 }
-
-       
